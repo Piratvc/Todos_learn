@@ -24,12 +24,10 @@ public class Client {
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
         ) {
-            while (true) {
-                out.println("{ \"typeTask\": \"" + pickRandomType() + "\", \"task\": \"task #" + pickRandomChar() + "\" }");
-                System.out.println(in.readLine());
-
-                Thread.sleep(500);
-            }
+            out.println("{ \"typeTask\": \"" + pickRandomType() + "\", \"task\": \"task #" + pickRandomChar() + "\" }");
+            System.out.println(in.readLine());
+            Thread.sleep(500);
         }
     }
 }
+
