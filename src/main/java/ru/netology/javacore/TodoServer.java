@@ -11,7 +11,6 @@ public class TodoServer {
     private int port;
     private Todos todos;
 
-
     public TodoServer(int port, Todos todos) {
         this.port = port;
         this.todos = todos;
