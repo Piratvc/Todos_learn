@@ -11,9 +11,15 @@ public class TodoServer {
     private int port;
     private Todos todos;
 
+
     public TodoServer(int port, Todos todos) {
         this.port = port;
         this.todos = todos;
+    }
+
+    private class ServerOperation {
+        String task;
+        String typeTask;
     }
 
     public void start() throws IOException {
@@ -29,14 +35,13 @@ public class TodoServer {
                         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                         BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 ) {
-                    String task = in.readLine();
-                    todos = gson.fromJson(task, Todos.class);
-                    if (todos.getType().equals("ADD")) {
-                        todos.addTask();
-                    } else {
-                        todos.removeTask();
-                    }
+                    ServerOperation operation = gson.fromJson(in.readLine(), ServerOperation.class);
 
+                    if (operation.typeTask.equals("ADD")) {
+                        todos.addTask(operation.task);
+                    } else if (operation.typeTask.equals("REMOVE")) {
+                        todos.removeTask(operation.task);
+                    }
                     out.println(todos.getAllTasks());
                 }
             }
