@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Todos {
 
-    private String task;
     private static TreeSet<String> listTodos = new TreeSet<>();
 
     public void addTask(String task) {
@@ -28,7 +27,6 @@ public class Todos {
     }
 
     public void clear() {
-        task = null;
         listTodos.clear();
     }
 }

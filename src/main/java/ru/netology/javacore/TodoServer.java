@@ -18,7 +18,7 @@ public class TodoServer {
 
     private class ServerOperation {
         String task;
-        String typeTask;
+        String type;
     }
 
     public void start() throws IOException {
@@ -36,9 +36,9 @@ public class TodoServer {
                 ) {
                     ServerOperation operation = gson.fromJson(in.readLine(), ServerOperation.class);
 
-                    if (operation.typeTask.equals("ADD")) {
+                    if (operation.type.equals("ADD")) {
                         todos.addTask(operation.task);
-                    } else if (operation.typeTask.equals("REMOVE")) {
+                    } else if (operation.type.equals("REMOVE")) {
                         todos.removeTask(operation.task);
                     }
                     out.println(todos.getAllTasks());
