@@ -16,7 +16,7 @@ public class TodosTests {
 
     public void addTask() {
         todos.addTask("Поспать");
-        Assertions.assertTrue(Todos.getListTodos().contains("Поспать"));
+        Assertions.assertTrue(todos.getListTodos().contains("Поспать"));
     }
 
     @Test
@@ -24,7 +24,7 @@ public class TodosTests {
         todos.addTask("Поспать");
         todos.addTask("Поработать");
         todos.removeTask("Поработать");
-        Assertions.assertFalse(Todos.getListTodos().contains("Поработать"));
+        Assertions.assertFalse(todos.getListTodos().contains("Поработать"));
     }
 
     @Test
