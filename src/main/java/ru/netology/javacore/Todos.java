@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Todos {
 
-    private TreeSet<String> listTodos = new TreeSet<>();
+    private List<String> listTodos = new ArrayList<>();
 
     public void addTask(String task) {
         listTodos.add(task);
@@ -14,11 +14,12 @@ public class Todos {
         listTodos.remove(task);
     }
 
-    public TreeSet<String> getListTodos() {
+    public List<String> getListTodos() {
         return listTodos;
     }
 
     public String getAllTasks() {
+        Collections.sort(listTodos);
         StringBuilder output = new StringBuilder();
         for (String toDos : listTodos) {
             output.append(toDos).append(' ');

@@ -32,9 +32,13 @@ public class TodosTests {
         todos.addTask("7");
         todos.addTask("2");
         todos.addTask("1");
+        todos.addTask("Z");
+        todos.addTask("A");
+        todos.addTask("B");
+        todos.addTask("Ac");
 
 
-        Assertions.assertTrue(todos.getAllTasks().equals("1 2 7 "));
+        Assertions.assertTrue(todos.getAllTasks().equals("1 2 7 A Ac B Z "));
     }
 }
 
